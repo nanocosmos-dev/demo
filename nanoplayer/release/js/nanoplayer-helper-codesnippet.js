@@ -83,9 +83,6 @@ function createCodeSippet (_config) {
         }
         entryType = undefined;
     }
-    if(!config.source.entries) {
-      console.log("Error: no source entries?");
-    } else {
     if (!entryType) {
         for (i = 0, len = entryTypes.length; i < len; i += 1) {
             entryType = entryTypes[i];
@@ -160,8 +157,6 @@ function createCodeSippet (_config) {
     if (isGroupStreams) {
         _asArray && (line += ']; \r\n');
     }
-    } // end of check config.source.entries
-
     config = JSON.stringify(config, null, 4);
     config = removePlaceholders(config);
 
