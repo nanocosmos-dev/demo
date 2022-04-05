@@ -492,7 +492,11 @@ var streamobj = [];
             var divInfo = document.createElement('div');
             divInfo.setAttribute('id', 'info-' + id);
             divInfo.innerHTML += '<strong id="status-playback-player-' + id + '">ready: </strong>';
-            divInfo.innerHTML += '<a style="cursor:pointer" onclick="window.open(\'nanoplayer.html?bintu.apiurl=' + this.config.source.bintu.apiurl + '&bintu.streamid=' + id + '\',\'_blank\');">' + streamname + '</a>';
+            var params = 'bintu.apiurl=' + this.config.source.bintu.apiurl + '&bintu.streamid=' + id;
+            if(this.config.playback.latencyControlMode) {
+                params += "&playback.latencyControlMode="+this.config.playback.latencyControlMode;
+            }
+            divInfo.innerHTML += '<a style="cursor:pointer" onclick="window.open(\'nanoplayer.html?' + params + '\',\'_blank\');">' + streamname + '</a>';
 
             //divObj.appendChild(divEmbed);
             div.appendChild(divObj);
